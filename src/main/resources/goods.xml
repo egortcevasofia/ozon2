@@ -1,0 +1,20 @@
+<listOfGoods>
+    <Good>
+        <description>Milk chocolate</description>
+        <name>Chocolate</name>
+        <price>100</price>
+        <quantity>5</quantity>
+    </Good>
+    <Good>
+        <description>Black tea</description>
+        <name>Tea</name>
+        <price>200</price>
+        <quantity>50</quantity>
+    </Good>
+    <Good>
+        <description>Coffee solubile</description>
+        <name>Coffee</name>
+        <price>40</price>
+        <quantity>30</quantity>
+    </Good>
+</listOfGoods>
