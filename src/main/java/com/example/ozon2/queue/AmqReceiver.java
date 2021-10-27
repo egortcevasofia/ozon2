@@ -1,6 +1,6 @@
 package com.example.ozon2.queue;
 
-import com.example.ozon2.dto.ShopRequest;
+import com.example.ozon2.dto.ShopRequestDto;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,9 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
@@ -31,7 +33,7 @@ public class AmqReceiver {
     File xmlFile = new File("C:\\Users\\segortseva\\IdeaProjects\\ozon2\\src\\main\\resources\\goods.xml");
 
     @Autowired
-    public void setJmsTemplate(JmsTemplate jmsTemplate) {
+    public AmqReceiver(JmsTemplate jmsTemplate) {
         this.jmsTemplate = jmsTemplate;
     }
 
@@ -50,7 +52,7 @@ public class AmqReceiver {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 var element = (Element) node;
 
-                var shopRequest = ShopRequest.builder()
+                var shopRequest = ShopRequestDto.builder()
                         .shopId(Long.parseLong(element.getElementsByTagName("shop_id").item(0).getTextContent()))
                         .numberOfOrder(Long.parseLong(element.getElementsByTagName("numberOfOrder").item(0).getTextContent()))
                         .build();
@@ -62,7 +64,6 @@ public class AmqReceiver {
         }
 
 
-
         try {
             String xmlMessage = new String(
                     Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
@@ -71,13 +72,7 @@ public class AmqReceiver {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
     }
-
-
 
 
 }

@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @Setter
 @ToString
-public class ShopRequest {
+public class ShopRequestDto {
 
     private long shopId;
     private long numberOfOrder;

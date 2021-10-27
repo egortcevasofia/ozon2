@@ -1,0 +1,28 @@
+{
+  "listOfGoods": [
+    {
+      "id": 1,
+      "name": "Apple",
+      "description": null,
+      "quantity": 30,
+      "price": 120.00,
+      "goodStatus": "ACTIVE"
+    },
+    {
+      "id": 3,
+      "name": "Banana",
+      "description": null,
+      "quantity": 32,
+      "price": 220.00,
+      "goodStatus": "ACTIVE"
+    },
+    {
+      "id": 7,
+      "name": "Chocolate",
+      "description": "Milk chocolate",
+      "quantity": 5,
+      "price": 100.00,
+      "goodStatus": "ACTIVE"
+    }
+  ]
+}
